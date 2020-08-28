@@ -1,0 +1,22 @@
+<div class="row mb-4">
+  <div class="col">Caixa: {{ total }}</div>
+  <div class="col">A receber: {{ aReceber }}</div>
+  <div class="col">A pagar: {{ aPagar }}</div>
+  <div class="col">Previsto: {{ totalPrevisto }}</div>
+</div>
+
+
+<div>
+  <ngx-datatable
+    class="bootstrap"
+    [columnMode]="'force'"
+    [headerHeight]="50"
+    [footerHeight]="50"
+    rowHeight="auto"
+    [rows]="rows"
+    [columns]="columns"
+    [limit]="10"
+  > </ngx-datatable>
+</div>
+
+<!-- <button (click)="delete(ticket._id)" class="btn btn-danger">Deletar</button> -->

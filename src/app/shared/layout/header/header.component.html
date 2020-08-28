@@ -1,0 +1,10 @@
+
+<nav *ngIf="authService.isLoggedIn()" class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item" [routerLinkActive]="['active']" *ngFor="let item of menu">
+      <a class="nav-link" [routerLink]="[item.path]"> {{item.name}} </a>
+    </li>
+  </ul>
+  
+  <button (click)="logoff()" class="btn btn-danger">Logoff</button>
+</nav>

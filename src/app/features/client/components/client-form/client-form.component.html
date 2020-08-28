@@ -1,0 +1,82 @@
+  <h2 class="mb-4">Novo lançamento</h2>
+
+  <form [formGroup]="clientForm" (submit)="submit()">
+
+    <div class="form-row">
+      <div class="form-group col col-sm-12">
+        <label for="category">Tipo</label>
+        <input class="form-control" formControlName="type" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Apelido/Nome fantasia</label>
+        <input class="form-control" formControlName="nickname" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Nome</label>
+        <input class="form-control" formControlName="name" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">CNPJ</label>
+        <input class="form-control" formControlName="cnpj" type="text" id="category">
+      </div>
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col col-sm-12">
+        <label for="category">CPF</label>
+        <input class="form-control" formControlName="cpf" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">RG</label>
+        <input class="form-control" formControlName="rg" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Endereço</label>
+        <input class="form-control" formControlName="address" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Data de nascimento</label>
+        <input class="form-control" formControlName="date_of_birthy" type="text" id="category">
+      </div>
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col col-sm-12">
+        <label for="category">Numero de telefone</label>
+        <input class="form-control" formControlName="phone_number" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Email</label>
+        <input class="form-control" formControlName="email" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Website</label>
+        <input class="form-control" formControlName="website" type="text" id="category">
+      </div>
+
+      <div class="form-group col col-sm-12">
+        <label for="category">Instagram</label>
+        <input class="form-control" formControlName="instagram" type="text" id="category">
+      </div>
+
+    </div>
+    <div class="form-row">
+      <div class="form-group col col-sm-12">
+        <label for="category">Onde nos conheceu</label>
+        <input class="form-control" formControlName="reference" type="text" id="category">
+      </div>
+
+    </div>
+
+    <button class="btn btn-secondary mr-3" [routerLink]="['/tickets']">Voltar</button>
+
+    <button class="btn btn-primary" type="submit">Salvar</button>
+  </form>
