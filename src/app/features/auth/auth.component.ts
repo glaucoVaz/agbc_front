@@ -18,13 +18,11 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
     private authService: AuthService
   ) { 
         // redirect to home if already logged in
         if (this.authService.isLoggedIn()) { 
-            this.router.navigate(['/']);
+            window.location.href='http://painel.agbluecherry.com/clients';
         }
     }
 
@@ -51,8 +49,7 @@ export class AuthComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-
-                    this.router.navigate(['/']);
+                    window.location.href='http://painel.agbluecherry.com/clients';
                 },
                 error: error => {
                     this.error = error;

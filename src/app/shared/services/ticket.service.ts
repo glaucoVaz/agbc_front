@@ -40,7 +40,7 @@ export class TicketService extends BaseService {
       .pipe(
         retry(2),
         catchError(this.handleError),
-        map((res: any) => new Ticket().deserialize(res.ticket))
+        map((res: any) => new Ticket().deserialize(res))
       );
   }
 }

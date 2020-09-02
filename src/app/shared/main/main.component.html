@@ -1,0 +1,9 @@
+<app-menu [statusMenu]="statusMenu"></app-menu>
+
+<div class="wrapper" [ngClass]="{'active': !statusMenu}">    
+    <app-header (statusMenuEmitter)="setStatusMenu($event)"></app-header>
+    <div class="myshadow bg-white p-5 m-5">
+        <router-outlet></router-outlet>
+    </div>
+</div> 
+

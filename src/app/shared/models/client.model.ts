@@ -19,4 +19,18 @@ export class Client implements Deserializable {
     Object.assign(this, input);
     return this;
   }
+
+  get formatedType() {
+    if (this.type) {
+      return 'Pessoa Jurídica';
+    }
+      return 'Pessoa Fisica';
+  }
+
+  get document() {
+    if (this.type) {
+      return this.cnpj;
+    }
+      return this.cpf;
+  }
 }

@@ -1,0 +1,22 @@
+nav {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid rgba(224,224,224,.7);
+    margin: 0;
+    padding: 0px 35px;
+    -webkit-box-shadow: 0px -2px 28px 0px rgba(199,199,199,0.85);
+    -moz-box-shadow: 0px -2px 28px 0px rgba(199,199,199,0.85);
+    box-shadow: 0px -2px 28px 0px rgba(199,199,199,0.85);
+    
+}
+span {
+    font-size: 32px;
+}
+img {
+    width: 24px; 
+    cursor: pointer;
+    transition: all 0.7s;
+    &.active {
+        transform: rotate(180deg);
+    }
+}

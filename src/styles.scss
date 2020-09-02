@@ -3,3 +3,9 @@
 @import '~@swimlane/ngx-datatable/index.css';
 @import '~@swimlane/ngx-datatable/themes/bootstrap.scss';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
+@import './assets/fonts/style.css';
+
+body{
+    font-family: 'Gilroy-Regular';
+    background: #f4f4f4;
+}

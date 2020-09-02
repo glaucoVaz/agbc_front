@@ -9,13 +9,35 @@ import { TicketComponent } from './features/ticket/page/ticket.component'
 import { TicketFormComponent } from './features/ticket/components/ticket-form/ticket-form.component';
 
 const routes: Routes = [
-  {path: '', component: AuthComponent},
+  {path: 'login', component: AuthComponent},
 
-  {path: 'tickets', component: TicketComponent, canActivate: [AuthGuard]},
-  {path: 'tickets/new', component: TicketFormComponent, canActivate: [AuthGuard]},
+  {
+    path: 'tickets',
+    component: TicketComponent,
+    canActivate: [AuthGuard],
+    data : {  title : 'Lançamentos'}
+  },
+  {
+    path: 'tickets/new',
+    component: TicketFormComponent,
+    canActivate: [AuthGuard],
+    data : {  title : 'Lançamentos'}
+  },
 
-  {path: 'clients', component: ClientComponent, canActivate: [AuthGuard]},
-  {path: 'clients/new', component: ClientFormComponent, canActivate: [AuthGuard]},
+  {
+    path: 'clients',
+    component: ClientComponent,
+    canActivate: [AuthGuard],
+    data : {  title : 'Clientes'}
+  },
+  {
+    path: 'clients/new',
+    component: ClientFormComponent,
+    canActivate: [AuthGuard],
+    data : {  title : 'Clientes'}
+  },
+
+  {path: '', pathMatch: 'full', redirectTo: 'clients'}  
 ];
 
 @NgModule({

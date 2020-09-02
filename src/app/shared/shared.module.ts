@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { MenuComponent } from './layout/menu/menu.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
-  exports: [HeaderComponent],
+  declarations: [MainComponent, HeaderComponent, MenuComponent],
+  exports: [MainComponent, HeaderComponent],
   imports: [
     CommonModule,
     RouterModule,

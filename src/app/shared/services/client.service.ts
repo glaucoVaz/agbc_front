@@ -40,7 +40,7 @@ export class ClientService extends BaseService{
       .pipe(
         retry(2),
         catchError(this.handleError),
-        map((res: any) => new Client().deserialize(res.client))
+        map((res: any) => new Client().deserialize(res))
       )
   }
 }

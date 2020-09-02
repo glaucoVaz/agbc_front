@@ -1,10 +1,15 @@
-
-<nav *ngIf="authService.isLoggedIn()" class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-    <li class="nav-item" [routerLinkActive]="['active']" *ngFor="let item of menu">
-      <a class="nav-link" [routerLink]="[item.path]"> {{item.name}} </a>
-    </li>
-  </ul>
-  
-  <button (click)="logoff()" class="btn btn-danger">Logoff</button>
+<nav class="row justify-content-between align-items-center">
+  <div class="col-auto">
+    <div class="row align-items-center">
+      <div class="col-auto" (click)="toogleMenu()">
+        <img [ngClass]="{'active': !statusMenu }" src="../../../assets/icons/menu.png" >
+      </div>
+      <div class="col-auto">
+        <span>{{ pageTitle }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto">
+      <img src="../../../assets/icons/user.svg" (click)="logoff()">
+  </div>
 </nav>

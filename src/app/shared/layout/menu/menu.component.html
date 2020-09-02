@@ -1,0 +1,13 @@
+<nav [ngClass]="{'active': !statusMenu}">
+    <div class="header">
+        <img class="logo" src="../../../assets/purple-cherry.png" alt="">
+    </div>
+    <ul class="pt-2 list-unstyled">
+        <li class="menu-item" *ngFor="let item of menu">
+            <a [routerLink]="[item.link]" [routerLinkActive]="['active']" >
+                <img [src]="'../../../assets/icons/' + item.icon + '.svg'">
+                {{ item.title }}
+            </a>
+        </li>
+    </ul>
+</nav>

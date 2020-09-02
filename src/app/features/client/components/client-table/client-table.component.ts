@@ -1,5 +1,6 @@
 import { ClientService } from '../../../../shared/services/client.service';
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -9,67 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientTableComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
 
-  rows = [];
-  
+  clients;
+
   columns = [
-    {
-      prop: "type",
-      name: "Tipo"
-  },
-  {
-      prop: "nickname",
-      name: "Apelido"
-  },
-  {
-      prop: "name",
-      name: "Nome"
-  },
-  {
-      prop: "cnpj",
-      name: "CNPJ"
-  },
-  {
-      prop: "cpf",
-      name: "CPF"
-  },
-  {
-      prop: "rg",
-      name: "RG"
-  },
-  {
-      prop: "address",
-      name: "Endereço"
-  },
-  {
-      prop: "date_of_birthy",
-      name: "Data"
-  },
-  {
-      prop: "phone_number",
-      name: "Numero"
-  },
-  {
-      prop: "email",
-      name: "Email"
-  },
-  {
-      prop: "website",
-      name: "Website"
-  },
-  {
-      prop: "instagram",
-      name: "Instagram"
-  },
-  {
-      prop: "reference",
-      name: "Onde"
-  },
+    "Tipo",
+    "Apelido",
+    "Nome",
+    "Documento",
+    "Telefone",
+    "Email",
+    "Instagram",
+    "Ações"
   ]
 
   constructor(private clientService: ClientService) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
     this.getClients();
   }
 
@@ -82,7 +45,8 @@ export class ClientTableComponent implements OnInit {
 
   getClients() {
     this.clientService.getClients().subscribe( (res: any) => {
-      this.rows = res.clients;
+      this.clients = res;
+      this.dtTrigger.next();
     })
   }
 }

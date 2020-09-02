@@ -1,38 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
+
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
 
-  menu;
+  statusMenu: boolean = true;
+  pageTitle: String;
+  
+  @Output()
+  statusMenuEmitter = new EventEmitter();
 
   constructor(
-    private router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    public router: Router,
+    public route: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
-    this.menu = [
-      {
-        name: 'Financeiro',
-        path: '/tickets',
-        icon: ''
-      },
-      {
-        name: 'Clientes',
-        path: '/clients',
-        icon: ''
-      },
-    ]
+  ngOnInit() {
+    this.router.events.subscribe((data) => {
+      if (data instanceof RoutesRecognized) {
+         this.pageTitle = data.state.root.firstChild?.data.title;
+      }
+    });
   }
 
+  toogleMenu(){
+    this.statusMenu = !this.statusMenu;
+    this.statusMenuEmitter.emit(this.statusMenu)
+  }
+  
   logoff() {
     this.authService.logout();
-    this.router.navigate(['/'])
   }
 }

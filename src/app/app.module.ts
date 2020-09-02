@@ -20,7 +20,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
     SharedModule,
     AuthModule,
     ClientModule,
-    TicketModule
+    TicketModule,
   ],
   providers: [
     {

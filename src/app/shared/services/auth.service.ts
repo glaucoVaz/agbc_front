@@ -14,6 +14,7 @@ export class AuthService extends BaseService {
     constructor(protected httpClient: HttpClient) {
         super();
     }
+
     login(email: string, password: string) {
         return this.httpClient.post<any>(`${this.baseUrl}auth/authenticate`, { email, password })
             .pipe(map(user => {
@@ -33,6 +34,7 @@ export class AuthService extends BaseService {
     logout() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
+        window.location.href='http://painel.agbluecherry.com/login';
     }
 
     public isLoggedIn() {

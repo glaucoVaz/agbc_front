@@ -1,12 +1,35 @@
-<div>
-  <ngx-datatable
-    class="bootstrap"
-    [columnMode]="'force'"
-    [headerHeight]="50"
-    [footerHeight]="50"
-    rowHeight="auto"
-    [rows]="rows"
-    [columns]="columns"
-    [limit]="10"
-  > </ngx-datatable>
-</div>
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-striped">
+  <thead>
+    <tr>
+      <th *ngFor="let item of columns">{{ item }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of clients">
+      <td>{{ item.formatedType }}</td>
+      <td>{{ item.nickname }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.document }}</td>
+      <td>{{ item.phone_number }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.instagram }}</td>
+      <td>
+        <button (click)="delete(item._id)" class="btn btn-danger">Deletar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- 
+<td>{{ item.type }}</td>
+<td>{{ item.nickname }}</td>
+<td>{{ item.name }}</td>
+<td>{{ item.cnpj }}</td>
+<td>{{ item.cpf }}</td>
+<td>{{ item.rg }}</td>
+<td>{{ item.address }}</td>
+<td>{{ item.date_of_birthy }}</td>
+<td>{{ item.phone_number }}</td>
+<td>{{ item.email }}</td>
+<td>{{ item.website }}</td>
+<td>{{ item.instagram }}</td>
+<td>{{ item.reference }}</td> -->
